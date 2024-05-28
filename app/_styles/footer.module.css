@@ -1,0 +1,138 @@
+.footer {
+  width: 100%;
+  background-color: hsl(var(--black-300));
+  padding: 96px 48px 60px;
+}
+
+.footer > .wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 104px;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.wrapper > .links {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 36px;
+  row-gap: 48px;
+}
+
+.wrapper > .links > .contact {
+  flex: 3;
+}
+
+.wrapper > .links > .socialQuick {
+  flex: 4;
+}
+
+.wrapper > .links > .socialQuick {
+  display: flex;
+  gap: 36px;
+}
+
+.wrapper > .links > .contact,
+.wrapper > .links > .socialQuick > div {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  min-width: fit-content;
+}
+
+.wrapper > .links > .contact > h4,
+.wrapper > .links > .socialQuick > div > h4 {
+  padding: 0 18px 18px 0;
+  border-bottom: 2px solid hsl(var(--grey));
+}
+
+.wrapper > .links > .contact > a,
+.wrapper > .links > .socialQuick > div > a {
+  font-size: 22px;
+  font-weight: 400;
+}
+
+.wrapper > .copy {
+  display: flex;
+  justify-content: space-between;
+}
+
+.wrapper > .copy > h4:first-child {
+  background: -webkit-linear-gradient(
+    270.5deg,
+    hsl(var(--blue)) 33%,
+    hsl(var(--pink)) 85%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding-bottom: 4px;
+}
+
+.wrapper > .copy > h4:last-child {
+  color: hsl(var(--white-300));
+  cursor: pointer;
+}
+
+.social > .mobileH4 {
+  display: none;
+}
+
+/* Media query */
+@media screen and (max-width: 810px) {
+  .footer {
+    padding: 72px 24px 32px;
+  }
+
+  .footer > .wrapper {
+    gap: 48px;
+  }
+
+  .wrapper > .links {
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  .wrapper > .links > .contact,
+  .wrapper > .links > .social,
+  .wrapper > .links > .quick {
+    flex: auto;
+  }
+
+  .wrapper > .links > .socialQuick {
+    gap: 18px;
+  }
+
+  .wrapper > .links > .contact,
+  .wrapper > .links > .socialQuick > div {
+    gap: 18px;
+  }
+
+  .wrapper > .links > .contact > h4,
+  .wrapper > .links > .socialQuick > div > h4 {
+    padding: 0 12px 12px 0;
+  }
+
+  .wrapper > .links > .contact > a,
+  .wrapper > .links > .socialQuick > div > a {
+    font-size: 18px;
+    font-weight: 400;
+  }
+
+  .wrapper > .copy > h4 {
+    font-size: min(25px, calc((100vw - 48px) * 0.07));
+  }
+
+  .wrapper > .copy > :last-child {
+    display: none;
+  }
+
+  .social > .mobileH4 {
+    display: block;
+  }
+
+  .social > .desktopH4 {
+    display: none;
+  }
+}
