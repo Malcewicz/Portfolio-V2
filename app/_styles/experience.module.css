@@ -1,0 +1,59 @@
+.experience,
+.education {
+  display: flex;
+  flex-direction: column;
+  gap: 96px;
+  background-color: hsl(var(--black-300));
+}
+
+.experience {
+  padding-bottom: 0;
+}
+
+.education {
+  gap: 120px;
+  border-radius: 0;
+  padding-bottom: calc(153px - 64px);
+}
+
+.experience > .content,
+.education > .content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 36px;
+}
+
+.content > .job > .details > h3,
+.content > .school > .details > h3 {
+  margin-bottom: calc(38px - 0.2em);
+}
+
+.content > .job > .details > .position,
+.content > .school > .details > .degree {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 84px;
+}
+
+.content > .school > .details > .degree {
+  margin-bottom: 64px;
+}
+
+/* Media query */
+@media screen and (max-width: 810px) {
+  .experience {
+    gap: 72px;
+  }
+
+  .education {
+    gap: 84px;
+    padding-bottom: calc(116px - 64px);
+  }
+
+  .content > .job > .details > h3,
+  .content > .school > .details > h3 {
+    margin-bottom: 32px;
+  }
+}
