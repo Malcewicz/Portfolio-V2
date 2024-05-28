@@ -1,0 +1,132 @@
+.notfound {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  padding: 24px;
+}
+
+.notfound > .wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 48px;
+}
+
+.wrapper > .error {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.wrapper > .error > h1 {
+  font-size: 180px;
+  margin-block: -0.26em;
+  background: -webkit-linear-gradient(
+    272deg,
+    hsl(var(--blue)) 35%,
+    hsl(var(--pink)) 85%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.wrapper > .message {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 32px;
+  padding-top: 40px;
+}
+
+.wrapper > .message > h2 {
+  font-size: 65px;
+}
+
+.wrapper > .message > h3 {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  font-size: 48px;
+  margin: 0;
+}
+
+.wrapper > .message > h3 > a {
+  display: flex;
+  justify-content: center;
+  min-width: fit-content;
+  font-size: 24px;
+  line-height: 0.8;
+  color: hsl(var(--white));
+  background-color: hsl(var(--blue));
+  border-radius: var(--radius-m);
+  padding: 20px 60px;
+  margin: 0.1px;
+}
+
+.notfound > .background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.background > .circle_top_left,
+.background > .circle_btm_right {
+  position: absolute;
+  height: 350px;
+  aspect-ratio: 2;
+  background: hsl(var(--blue) / 0.25);
+  border-radius: 50%;
+  filter: blur(300px);
+}
+
+.background > .circle_top_left {
+  top: -90px;
+  left: -180px;
+}
+
+.background > .circle_btm_right {
+  bottom: -90px;
+  right: -180px;
+}
+
+@media screen and (max-width: 1280px) {
+  .notfound > .wrapper {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .wrapper > .error {
+    width: 100%;
+  }
+
+  .wrapper > .message {
+    align-items: flex-start;
+  }
+}
+
+@media screen and (max-width: 810px) {
+  .wrapper > .error > h1 {
+    font-size: 160px;
+  }
+
+  .wrapper > .message > h2 {
+    font-size: 42px;
+  }
+
+  .wrapper > .message > h3 {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    width: 100%;
+    font-size: 32px;
+  }
+
+  .wrapper > .message > h3 > a {
+    width: 100%;
+    font-size: 20px;
+  }
+}
