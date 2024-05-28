@@ -1,0 +1,23 @@
+.cursor,
+.cursorLabel {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.cursor {
+  background-color: hsl(var(--blue) / 0.8);
+  backdrop-filter: blur(6px);
+}
+
+.cursorLabel {
+  font-size: 20px;
+  font-weight: 600;
+  color: hsl(var(--white));
+}
