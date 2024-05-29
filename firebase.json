@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "site": "https://mb-portfolio-v2.web.app",
+    "site": "mb-portfolio-v2",
     "public": "out",
     "ignore": [
       "firebase.json",
