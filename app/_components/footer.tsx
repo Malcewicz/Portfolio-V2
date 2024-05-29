@@ -28,7 +28,7 @@ const Footer = () => {
                 GitHub
               </Link>
               <Link
-                href="MB_resume_pers.pdf"
+                href="MB_resume_og_pers.pdf"
                 type="application/pdf"
                 target="_blank"
                 rel="noopener noreferrer"

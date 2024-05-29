@@ -9,16 +9,16 @@ import { IconExternalLink } from "@tabler/icons-react";
 import { scrollToTop } from "@/app/_utils/scroll-to-top";
 
 const Navbar = () => {
+  const nav = useRef<HTMLDivElement | any>();
+  const button = useRef<HTMLElement | any>();
+  const span = useRef<HTMLElement | any>();
+
   // Temporarily disable navbar on mobile
   const window = globalThis.window;
   const isMobile = typeof window !== "undefined" && window.innerWidth <= 810;
   if (isMobile) {
     return null;
   }
-
-  const nav = useRef<HTMLDivElement | any>();
-  const button = useRef<HTMLElement | any>();
-  const span = useRef<HTMLElement | any>();
 
   useGSAP(
     () => {
@@ -68,7 +68,7 @@ const Navbar = () => {
         <Link href="#contact">Contact</Link>
         <Link
           title="Open my resume in a new tab"
-          href="MB_resume_pers.pdf"
+          href="MB_resume_og_pers.pdf"
           type="application/pdf"
           target="_blank"
           rel="noopener noreferrer"

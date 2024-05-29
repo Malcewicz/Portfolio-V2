@@ -4,7 +4,7 @@ const Hero = () => {
   return (
     <header className={styles.hero}>
       <div className={styles.container}>
-        <h3 className={styles.subheading}>Hello! I'm Maciej</h3>
+        <h3 className={styles.subheading}>Hello! I&apos;m Maciej</h3>
         <h1 className={styles.heading}>
           Transforming Ideas into Reality through{" "}
           <span>Technology and Cooperation</span>

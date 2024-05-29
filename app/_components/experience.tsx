@@ -19,8 +19,8 @@ const WorkExperience = () => {
           <p className="subtitle">
             With a blend of technical expertise and project management skills,
             my professional journey highlights roles that required
-            problem-solving, system optimization, and technical support. Here’s
-            a snapshot of my career so far:
+            problem-solving, system optimization, and technical support.
+            Here&apos;s a snapshot of my career so far:
           </p>
         </div>
       </div>
@@ -49,7 +49,7 @@ const WorkExperience = () => {
                 coordinators and supervisors, ensuring their operations were as
                 smooth as a well-executed landing. From ensuring robust network
                 connectivity to swiftly resolving technical issues, my
-                contributions kept the airport’s technical backbone running
+                contributions kept the airport&apos;s technical backbone running
                 flawlessly. Optimizing software and hardware systems was just
                 part of the journey, where every solved problem meant another
                 happy passenger.
@@ -130,13 +130,14 @@ const Education = () => {
 
             {/* Bachelor's Degree */}
             <div className={styles.degree}>
-              <h4>Bachelor's in Business Management</h4>
+              <h4>Bachelor&apos;s in Business Management</h4>
               <p>
-                I am set to begin my Bachelor's degree in Business Management
-                this October, aiming to further develop my interests and skills
-                in this field. This program will provide a strong foundation in
-                management principles and practices, preparing me for future
-                challenges and opportunities in project management and beyond.
+                I am set to begin my Bachelor&apos;s degree in Business
+                Management this October, aiming to further develop my interests
+                and skills in this field. This program will provide a strong
+                foundation in management principles and practices, preparing me
+                for future challenges and opportunities in project management
+                and beyond.
               </p>
             </div>
           </div>
@@ -153,7 +154,7 @@ const Education = () => {
             <div className={styles.degree}>
               <h4>IT Technician</h4>
               <p>
-                I attended one of Poland's top technical colleges, where I
+                I attended one of Poland&apos;s top technical colleges, where I
                 acquired a comprehensive education in computer science. This
                 rigorous program covered a wide range of subjects, including
                 software development, network management, and hardware

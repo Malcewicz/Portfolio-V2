@@ -40,7 +40,7 @@ const Contact = () => {
       <div className={styles.content}>
         <div className={styles.text}>
           <p className={styles.subtitle}>
-            I'm always open to discussing new projects, creative ideas, or
+            I&apos;m always open to discussing new projects, creative ideas, or
             opportunities to be part of your visions. Feel free to reach out
             through any of the methods below. I look forward to connecting with
             you!
@@ -64,7 +64,7 @@ const Contact = () => {
           </p>
           <Link
             title="Open my resume in a new tab"
-            href="MB_resume_pers.pdf"
+            href="MB_resume_og_pers.pdf"
             type="application/pdf"
             target="_blank"
             rel="noopener noreferrer"

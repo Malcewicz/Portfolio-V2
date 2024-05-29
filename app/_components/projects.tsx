@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import ProjectCursor from "./ui/project-cursor";
 import styles from "@/app/_styles/projects.module.css";
 
@@ -64,7 +65,12 @@ const Projects = () => {
               onMouseEnter={() => handleCursor(true)}
               onMouseLeave={() => handleCursor(false)}
             >
-              <img src={project.image} alt={project.alt} />
+              <Image
+                src={project.image}
+                width={768}
+                height={768}
+                alt={project.alt}
+              />
             </div>
 
             <div className={styles.description}>

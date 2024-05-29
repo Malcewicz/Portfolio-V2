@@ -7,10 +7,10 @@ const AboutMe = () => {
         <h2>About Me</h2>
         <div className="wrapper">
           <p className="subtitle">
-            I'm a technology enthusiast with a strong background in software
-            development and a growing enthusiasm for project management. Based
-            in Warsaw, I excel at transforming complex challenges into seamless
-            solutions.
+            I&apos;m a technology enthusiast with a strong background in
+            software development and a growing enthusiasm for project
+            management. Based in Warsaw, I excel at transforming complex
+            challenges into seamless solutions.
           </p>
         </div>
       </div>

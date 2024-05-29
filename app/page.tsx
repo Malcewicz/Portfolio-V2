@@ -1,14 +1,14 @@
 import {
   Navbar,
-  Footer,
   Hero,
   AboutMe,
   Projects,
   Experience,
   Values,
   Contact,
-} from "@/app/_components";
-import TemporaryDialog from "@/app/_components/!temporary-dialog";
+  Footer,
+} from "./_components";
+import TemporaryDialog from "./_components/ui/temporary-dialog";
 
 export default function Home() {
   return (
@@ -21,7 +21,6 @@ export default function Home() {
         <Experience />
         <Values />
         <Contact />
-
         {/* Temporary dialog */}
         <TemporaryDialog />
       </main>

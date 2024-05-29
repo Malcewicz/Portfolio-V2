@@ -6,25 +6,34 @@
     "dev": "next dev --turbo",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "export": "next export"
+    "lint": "next lint"
   },
   "dependencies": {
     "@gsap/react": "^2.1.1",
-    "@next/third-parties": "^14.2.3",
+    "@next/third-parties": "^15.0.0-rc.0",
     "@tabler/icons-react": "^3.5.0",
     "firebase": "^10.12.2",
     "gsap": "^3.12.5",
-    "next": "^14.2.3",
-    "react": "19.0.0-rc-f994737d14-20240522",
-    "react-dom": "19.0.0-rc-f994737d14-20240522"
+    "next": "^15.0.0-rc.0",
+    "react": "^19.0.0-rc-f994737d14-20240522",
+    "react-dom": "^19.0.0-rc-f994737d14-20240522",
+    "swc": "^1.0.11"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
-    "eslint-config-next": "15.0.0-rc.0",
+    "eslint-config-next": "^15.0.0-rc.0",
     "typescript": "^5"
+  },
+  "overrides": {
+    "@next/third-parties": {
+      "next": "15.0.0-rc.0",
+      "react": "19.0.0-rc-f994737d14-20240522"
+    },
+    "@tabler/icons-react": {
+      "react": "19.0.0-rc-f994737d14-20240522"
+    }
   }
 }

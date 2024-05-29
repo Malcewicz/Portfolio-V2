@@ -1,18 +1,18 @@
 "use client";
 
 import { useRef } from "react";
-import styles from "@/app/_styles/!temporary-dialog.module.css";
+import styles from "@/app/_styles/ui/temporary-dialog.module.css";
 import { IconX } from "@tabler/icons-react";
 
 const TemporaryDialog = () => {
+  const dialog = useRef<HTMLDivElement>(null);
+
   // check if device is mobile
   const window = globalThis.window;
   const isMobile = typeof window !== "undefined" && window.innerWidth <= 810;
   if (isMobile) {
     return <MobileDialog />;
   }
-
-  const dialog = useRef<HTMLDivElement>(null);
 
   // Close dialog
   const closeDialog = () => {
