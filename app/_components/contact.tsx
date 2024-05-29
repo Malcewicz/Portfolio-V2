@@ -63,11 +63,11 @@ const Contact = () => {
             Feel free to view or download my resume:
           </p>
           <Link
-            title="Open my resume in a new tab"
             href="/MB_resume_og_pers.pdf"
             type="application/pdf"
             target="_blank"
             rel="noopener noreferrer"
+            title="Open my resume in a new tab"
             className={styles.button}
             ref={button}
           >
