@@ -68,7 +68,7 @@ const Navbar = () => {
         <Link href="#contact">Contact</Link>
         <Link
           title="Open my resume in a new tab"
-          href="MB_resume_og_pers.pdf"
+          href="/MB_resume_og_pers.pdf"
           type="application/pdf"
           target="_blank"
           rel="noopener noreferrer"

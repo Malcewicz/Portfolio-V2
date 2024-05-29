@@ -46,7 +46,9 @@ export default function RootLayout({
       <body className={`${montserrat.variable} ${sourceSans.variable}`}>
         {children}
       </body>
-      <GoogleAnalytics gaId="G-GWDPYPP26W" />
+      <GoogleAnalytics
+        gaId={process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID as string}
+      />
     </html>
   );
 }
