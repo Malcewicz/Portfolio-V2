@@ -67,6 +67,7 @@ const Contact = () => {
             type="application/pdf"
             target="_blank"
             rel="noopener noreferrer"
+            locale={false}
             title="Open my resume in a new tab"
             className={styles.button}
             ref={button}
