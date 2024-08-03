@@ -65,6 +65,10 @@
 
 /* Media query */
 @media screen and (max-width: 810px) {
+  .hero {
+    min-height: calc(100vh - 76px);
+  }
+
   .hero > .container {
     gap: 48px;
     margin: 22px;

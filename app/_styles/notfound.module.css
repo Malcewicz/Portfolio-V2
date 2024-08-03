@@ -10,6 +10,7 @@
   justify-content: center;
   align-items: center;
   gap: 48px;
+  max-width: calc(100vw - 48px);
 }
 
 .wrapper > .error {
@@ -93,6 +94,7 @@
   right: -180px;
 }
 
+/* Media queries */
 @media screen and (max-width: 1280px) {
   .notfound > .wrapper {
     flex-direction: column;
@@ -110,11 +112,11 @@
 
 @media screen and (max-width: 810px) {
   .wrapper > .error > h1 {
-    font-size: 160px;
+    font-size: min(160px, calc((100vw - 48px) * 0.48));
   }
 
   .wrapper > .message > h2 {
-    font-size: 42px;
+    font-size: min(42px, calc((100vw - 48px) * 0.14));
   }
 
   .wrapper > .message > h3 {
@@ -128,5 +130,10 @@
   .wrapper > .message > h3 > a {
     width: 100%;
     font-size: 20px;
+  }
+
+  .background > .circle_top_left,
+  .background > .circle_btm_right {
+    height: 200px;
   }
 }

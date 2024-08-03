@@ -8,7 +8,6 @@ import {
   Contact,
   Footer,
 } from "./_components";
-import TemporaryDialog from "./_components/ui/temporary-dialog";
 
 export default function Home() {
   return (
@@ -21,8 +20,6 @@ export default function Home() {
         <Experience />
         <Values />
         <Contact />
-        {/* Temporary dialog */}
-        <TemporaryDialog />
       </main>
       <Footer />
     </>

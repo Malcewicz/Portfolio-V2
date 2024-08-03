@@ -5,21 +5,17 @@ import { gsap, useGSAP } from "@/app/_utils/gsap";
 import Link from "next/link";
 import styles from "@/app/_styles/ui/navbar.module.css";
 import { Logo } from "@/public/icons";
-import { IconExternalLink } from "@tabler/icons-react";
+import { IconExternalLink, IconMenuDeep, IconX } from "@tabler/icons-react";
 import { scrollToTop } from "@/app/_utils/scroll-to-top";
 
 const Navbar = () => {
   const nav = useRef<HTMLDivElement | any>();
+  const hamburger = useRef<HTMLElement | any>();
+  const links = useRef<HTMLElement | any>();
   const button = useRef<HTMLElement | any>();
   const span = useRef<HTMLElement | any>();
 
-  // Temporarily disable navbar on mobile
-  const window = globalThis.window;
-  const isMobile = typeof window !== "undefined" && window.innerWidth <= 810;
-  if (isMobile) {
-    return null;
-  }
-
+  // Animate the navbar on mount
   useGSAP(
     () => {
       gsap.set(nav.current, { y: -100, opacity: 0 });
@@ -34,6 +30,75 @@ const Navbar = () => {
     { scope: nav }
   );
 
+  // Animate the mobile menu
+  useGSAP(() => {
+    const tl = gsap.timeline({ paused: true });
+    // Hamburger transition
+    tl.to(
+      hamburger.current.children[0],
+      { rotate: 360, display: "none", opacity: 0, duration: 0.3 },
+      0
+    );
+    tl.to(
+      hamburger.current.children[1],
+      { rotate: 180, display: "inherit", opacity: 1, duration: 0.3 },
+      0.1
+    );
+    // Remove bottom border from nav
+    tl.to(
+      nav.current,
+      {
+        borderBottom: 0,
+        borderRadius: "8px 8px 0 0",
+        paddingBottom: "16px", // Adjusts padding to compensate for border removal
+        duration: 0,
+      },
+      0
+    );
+    // Place clip-path on top border of nav
+    tl.to(nav.current.children[0], { display: "block" }, 0);
+    // Slide menu
+    tl.to(links.current, { display: "flex", yPercent: 100, duration: 0.5 }, 0);
+    // Stagger menu links
+    tl.to(
+      links.current.children,
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.3,
+        stagger: 0.1,
+      },
+      0.4
+    );
+    // Remove clip-path
+    tl.to(nav.current.children[0], { display: "none" }, "-=0.1");
+    tl.reverse();
+
+    // Close the menu when a link is clicked
+    const linkArray = Array.from(links.current.children) as HTMLElement[];
+    linkArray.forEach((child) =>
+      child.addEventListener("click", () => {
+        tl.timeScale(2).reverse();
+      })
+    );
+
+    // Toggle menu on hamburger click
+    hamburger.current.addEventListener(
+      "click",
+      () =>
+        tl.reversed() ? tl.timeScale(1).play(0) : tl.timeScale(2).reverse() // Plays the animation at 2x speed when closing
+    );
+    return () => {
+      hamburger.current.removeEventListener("click", () =>
+        tl.reversed() ? tl.timeScale(1).play(0) : tl.timeScale(2).reverse()
+      );
+      linkArray.forEach((child) =>
+        child.removeEventListener("click", () => tl.timeScale(2).reverse())
+      );
+    };
+  });
+
+  // Animate the resume button on hover
   useGSAP(
     () => {
       const tl = gsap.timeline({ paused: true });
@@ -55,13 +120,20 @@ const Navbar = () => {
 
   return (
     <nav className={styles.navbar} ref={nav}>
+      <div className={styles.border} />
       {/* logo */}
       <div className={styles.logo} onClick={scrollToTop}>
         <Logo />
       </div>
 
+      {/* Mobile button */}
+      <div className={styles.hamburger} ref={hamburger}>
+        <IconMenuDeep size={34} stroke={2} />
+        <IconX size={34} stroke={2} />
+      </div>
+
       {/* links */}
-      <div className={styles.links}>
+      <div className={styles.links} ref={links}>
         <Link href="#about">About</Link>
         <Link href="#projects">Projects</Link>
         <Link href="#experience">Experience</Link>
