@@ -1,6 +1,8 @@
 .navbar {
-  position: sticky;
+  position: fixed;
   top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -11,13 +13,15 @@
   border-radius: var(--radius-m);
   backdrop-filter: blur(10px);
   padding: 15px 32px;
-  margin: 24px auto 0;
   z-index: 1000;
   opacity: 0;
 }
 
-.border {
-  display: none;
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
 .logo {
@@ -65,37 +69,11 @@
 /* Media query */
 @media screen and (max-width: 810px) {
   .navbar {
-    width: auto;
+    flex-direction: column;
+    justify-content: start;
+    gap: 20px;
     height: 52px;
-    padding: 14px;
-    margin-inline: 12px;
-    clip-path: inset(0 0 -300px 0 round 8px);
-  }
-
-  .border {
-    display: none;
-    position: fixed;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    height: 8px;
-    background-color: hsl(var(--grey) / 0.7);
-    border-radius: var(--radius-m) var(--radius-m) 0 0;
-    /* simulate the look of a rounded top border for navbar */
-    clip-path: polygon(
-      0 100%,
-      0 0,
-      100% 0,
-      100% 100%,
-      99.3% 100%,
-      99.1% 5px,
-      98.7% 3.5px,
-      98% 2px,
-      6px 2px,
-      4px 3.3px,
-      2.6px 5px,
-      2px 100%
-    );
+    padding: 7px 14px;
   }
 
   .logo {
@@ -120,20 +98,11 @@
 
   .links {
     display: none;
-    position: fixed;
-    width: calc(100% + 4px);
-    bottom: 0;
-    left: -2px;
+    width: 100%;
     flex-direction: column;
     align-items: start;
     gap: 36px;
-    background-color: hsl(var(--black) / 0.8);
-    border-radius: 0 0 var(--radius-m) var(--radius-m);
-    border: 2px solid hsl(var(--grey) / 0.7);
-    border-top: 0;
-    backdrop-filter: blur(12px);
-    padding: 24px;
-    z-index: -1;
+    padding: 10px;
   }
 
   .links > * {

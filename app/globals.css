@@ -42,7 +42,7 @@ body {
 /* Section styles */
 
 nav {
-  width: calc(100% - 48px);
+  width: calc(100vw - 48px);
   max-width: calc(var(--max-width) + 208px);
 }
 
@@ -144,6 +144,10 @@ a {
 
 /* Media query */
 @media screen and (max-width: 810px) {
+  nav {
+    width: calc(100vw - 24px);
+  }
+
   section {
     padding: 116px 24px;
   }

@@ -44,21 +44,17 @@ const Navbar = () => {
       { rotate: 180, display: "inherit", opacity: 1, duration: 0.3 },
       0.1
     );
-    // Remove bottom border from nav
+    // Expand nav
     tl.to(
       nav.current,
       {
-        borderBottom: 0,
-        borderRadius: "8px 8px 0 0",
-        paddingBottom: "16px", // Adjusts padding to compensate for border removal
-        duration: 0,
+        height: "342px",
+        duration: 0.3,
       },
       0
     );
-    // Place clip-path on top border of nav
-    tl.to(nav.current.children[0], { display: "block" }, 0);
-    // Slide menu
-    tl.to(links.current, { display: "flex", yPercent: 100, duration: 0.5 }, 0);
+    // Show menu
+    tl.to(links.current, { display: "flex" }, 0);
     // Stagger menu links
     tl.to(
       links.current.children,
@@ -68,10 +64,8 @@ const Navbar = () => {
         duration: 0.3,
         stagger: 0.1,
       },
-      0.4
+      0.3
     );
-    // Remove clip-path
-    tl.to(nav.current.children[0], { display: "none" }, "-=0.1");
     tl.reverse();
 
     // Close the menu when a link is clicked
@@ -120,19 +114,20 @@ const Navbar = () => {
 
   return (
     <nav className={styles.navbar} ref={nav}>
-      <div className={styles.border} />
-      {/* logo */}
-      <div className={styles.logo} onClick={scrollToTop}>
-        <Logo />
+      <div className={styles.wrapper}>
+        {/* logo */}
+        <div className={styles.logo} onClick={scrollToTop}>
+          <Logo />
+        </div>
+
+        {/* Mobile button */}
+        <div className={styles.hamburger} ref={hamburger}>
+          <IconMenuDeep size={34} stroke={2} />
+          <IconX size={34} stroke={2} />
+        </div>
       </div>
 
-      {/* Mobile button */}
-      <div className={styles.hamburger} ref={hamburger}>
-        <IconMenuDeep size={34} stroke={2} />
-        <IconX size={34} stroke={2} />
-      </div>
-
-      {/* links */}
+      {/* links menu */}
       <div className={styles.links} ref={links}>
         <Link href="#about">About</Link>
         <Link href="#projects">Projects</Link>
