@@ -134,7 +134,7 @@ const Navbar = () => {
         <Link href="#experience">Experience</Link>
         <Link href="#contact">Contact</Link>
         <Link
-          href="/MB_Resume_og_pers.pdf"
+          href="/MB_Resume_pers.pdf"
           type="application/pdf"
           target="_blank"
           locale={false}
