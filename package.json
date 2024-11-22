@@ -25,5 +25,10 @@
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "15.0.3"
+  },
+  "overrides": {
+    "@tabler/icons-react": {
+      "react": "19.0.0-rc-66855b96-20241106"
+    }
   }
 }
