@@ -7,11 +7,13 @@ import styles from "@/app/_styles/contact.module.css";
 import { IconPhone, IconMail } from "@tabler/icons-react";
 
 const Contact = () => {
-  const button = useRef<HTMLElement | any>();
-  const span = useRef<HTMLElement | any>();
+  const button = useRef<HTMLAnchorElement | null>(null);
+  const span = useRef<HTMLSpanElement | null>(null);
 
   useGSAP(
     () => {
+      if (!button.current || !span.current) return;
+
       const tl = gsap.timeline({ paused: true });
       tl.to(span.current, {
         yPercent: -250,
@@ -21,9 +23,13 @@ const Contact = () => {
       tl.set(span.current, { yPercent: 250 });
       tl.to(span.current, { yPercent: 0, duration: 0.2 });
 
-      button.current.addEventListener("mouseenter", () => tl.play(0));
+      const handleMouseEnter = () => tl.play(0);
+      const currentButton = button.current; // Capture current value for cleanup
+
+      currentButton.addEventListener("mouseenter", handleMouseEnter);
+
       return () => {
-        button.current.removeEventListener("mousemove", () => tl.play(0));
+        currentButton.removeEventListener("mouseenter", handleMouseEnter);
       };
     },
     { scope: button }
@@ -46,13 +52,9 @@ const Contact = () => {
             you!
           </p>
           <div className={styles.phonemail}>
-            <Link href="callto:+48733326433">
-              <IconPhone size={22} stroke={2} />
-              +48 733 326 433
-            </Link>
             <Link href="mailto:maciej@bernatowicz.dev">
               <IconMail size={22} stroke={2} />
-              maciej@bernatowicz.dev
+              email me at: maciej@bernatowicz.dev
             </Link>
           </div>
         </div>
@@ -62,18 +64,17 @@ const Contact = () => {
             Interested in hiring me or collaborating on a project? <br />
             Feel free to view or download my resume:
           </p>
-          <Link
+          <a
             href="/MB_Resume_pers.pdf"
             type="application/pdf"
             target="_blank"
             rel="noopener noreferrer"
-            locale={false}
             title="Open my resume in a new tab"
             className={styles.button}
             ref={button}
           >
             <span ref={span}>Download my Resume</span>
-          </Link>
+          </a>
         </div>
       </div>
     </section>

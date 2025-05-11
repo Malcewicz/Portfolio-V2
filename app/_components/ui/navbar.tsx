@@ -9,15 +9,17 @@ import { IconExternalLink, IconMenuDeep, IconX } from "@tabler/icons-react";
 import { scrollToTop } from "@/app/_utils/scroll-to-top";
 
 const Navbar = () => {
-  const nav = useRef<HTMLDivElement | any>();
-  const hamburger = useRef<HTMLElement | any>();
-  const links = useRef<HTMLElement | any>();
-  const button = useRef<HTMLElement | any>();
-  const span = useRef<HTMLElement | any>();
+  const nav = useRef<HTMLElement | null>(null);
+  const hamburger = useRef<HTMLDivElement | null>(null);
+  const links = useRef<HTMLDivElement | null>(null);
+  const button = useRef<HTMLAnchorElement | null>(null);
+  const span = useRef<HTMLSpanElement | null>(null);
 
   // Animate the navbar on mount
   useGSAP(
     () => {
+      if (!nav.current) return;
+
       gsap.set(nav.current, { y: -100, opacity: 0 });
       gsap.to(nav.current, {
         duration: 0.3,
@@ -32,6 +34,8 @@ const Navbar = () => {
 
   // Animate the mobile menu
   useGSAP(() => {
+    if (!hamburger.current || !links.current || !nav.current) return;
+
     const tl = gsap.timeline({ paused: true });
     // Hamburger transition
     tl.to(
@@ -68,33 +72,40 @@ const Navbar = () => {
     );
     tl.reverse();
 
+    const handleLinkClick = () => {
+      tl.timeScale(2).reverse();
+    };
+
+    const toggleMenu = () => {
+      tl.reversed() ? tl.timeScale(1).play(0) : tl.timeScale(2).reverse();
+    };
+
+    const currentHamburger = hamburger.current; // Capture current value for cleanup
+    const currentLinksChildren = Array.from(
+      links.current.children
+    ) as HTMLElement[];
+
     // Close the menu when a link is clicked
-    const linkArray = Array.from(links.current.children) as HTMLElement[];
-    linkArray.forEach((child) =>
-      child.addEventListener("click", () => {
-        tl.timeScale(2).reverse();
-      })
+    currentLinksChildren.forEach((child) =>
+      child.addEventListener("click", handleLinkClick)
     );
 
     // Toggle menu on hamburger click
-    hamburger.current.addEventListener(
-      "click",
-      () =>
-        tl.reversed() ? tl.timeScale(1).play(0) : tl.timeScale(2).reverse() // Plays the animation at 2x speed when closing
-    );
+    currentHamburger.addEventListener("click", toggleMenu);
+
     return () => {
-      hamburger.current.removeEventListener("click", () =>
-        tl.reversed() ? tl.timeScale(1).play(0) : tl.timeScale(2).reverse()
-      );
-      linkArray.forEach((child) =>
-        child.removeEventListener("click", () => tl.timeScale(2).reverse())
+      currentHamburger.removeEventListener("click", toggleMenu);
+      currentLinksChildren.forEach((child) =>
+        child.removeEventListener("click", handleLinkClick)
       );
     };
-  });
+  }, [nav, hamburger, links]);
 
   // Animate the resume button on hover
   useGSAP(
     () => {
+      if (!button.current || !span.current) return;
+
       const tl = gsap.timeline({ paused: true });
       tl.to(span.current, {
         yPercent: -125,
@@ -104,9 +115,12 @@ const Navbar = () => {
       tl.set(span.current, { yPercent: 125 });
       tl.to(span.current, { yPercent: 0, duration: 0.15 });
 
-      button.current.addEventListener("mouseenter", () => tl.play(0));
+      const currentButton = button.current;
+      const playButtonAnimation = () => tl.play(0);
+
+      currentButton.addEventListener("mouseenter", playButtonAnimation);
       return () => {
-        button.current.removeEventListener("mousemove", () => tl.play(0));
+        currentButton.removeEventListener("mousemove", playButtonAnimation);
       };
     },
     { scope: button }
@@ -133,11 +147,10 @@ const Navbar = () => {
         <Link href="#projects">Projects</Link>
         <Link href="#experience">Experience</Link>
         <Link href="#contact">Contact</Link>
-        <Link
+        <a
           href="/MB_Resume_pers.pdf"
           type="application/pdf"
           target="_blank"
-          locale={false}
           title="Open my resume in a new tab"
           rel="noopener noreferrer"
           className={styles.button}
@@ -147,7 +160,7 @@ const Navbar = () => {
             Resume
             <IconExternalLink size={20} stroke={2.5} />
           </span>
-        </Link>
+        </a>
       </div>
     </nav>
   );

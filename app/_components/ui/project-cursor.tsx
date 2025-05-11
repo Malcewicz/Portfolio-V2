@@ -5,11 +5,13 @@ import { useRef, useEffect } from "react";
 import styles from "@/app/_styles/ui/project-cursor.module.css";
 
 const ProjectCursor = ({ isActive }: { isActive: boolean }) => {
-  const cursor = useRef<HTMLDivElement | any>();
-  const cursorLabel = useRef<HTMLDivElement | any>();
+  const cursor = useRef<HTMLDivElement | null>(null);
+  const cursorLabel = useRef<HTMLDivElement | null>(null);
 
   useGSAP(
     () => {
+      if (!cursor.current || !cursorLabel.current) return;
+
       const MoveCursorX = gsap.quickTo(cursor.current, "left", {
         duration: 0.4,
         ease: "power2",
@@ -28,22 +30,26 @@ const ProjectCursor = ({ isActive }: { isActive: boolean }) => {
         ease: "power2",
       });
 
-      document.addEventListener("mousemove", (e) => {
+      const handleMouseMove = (e: MouseEvent) => {
         const { clientX, clientY } = e;
         MoveCursorX(clientX);
         MoveCursorY(clientY);
         MoveCursorLabelX(clientX);
         MoveCursorLabelY(clientY);
-      });
+      };
+
+      document.addEventListener("mousemove", handleMouseMove);
 
       return () => {
-        document.removeEventListener("mousemove", () => {});
+        document.removeEventListener("mousemove", handleMouseMove);
       };
     },
     { scope: cursor }
   );
 
   useEffect(() => {
+    if (!cursor.current || !cursorLabel.current) return;
+
     if (isActive) {
       gsap.to(cursor.current, {
         opacity: 1,
@@ -75,7 +81,7 @@ const ProjectCursor = ({ isActive }: { isActive: boolean }) => {
         ease: "power2.in",
       });
     }
-  }, [isActive]);
+  }, [isActive, cursor, cursorLabel]);
 
   return (
     <>

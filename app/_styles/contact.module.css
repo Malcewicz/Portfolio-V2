@@ -34,9 +34,9 @@
 }
 
 .content > .text > .phonemail {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
+  display: grid;
+  place-items: center;
+  margin-left: 36px;
   flex: 1;
 }
 
@@ -99,7 +99,7 @@
   }
 
   .contact > .content {
-    gap: 38px;
+    gap: 32px;
   }
 
   .content > .text {
@@ -109,6 +109,7 @@
 
   .content > .text > .phonemail > a {
     font-size: 18px;
+    line-height: 1.2;
   }
 
   .content > .resume {

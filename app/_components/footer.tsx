@@ -11,7 +11,6 @@ const Footer = () => {
         <div className={styles.links}>
           <div className={styles.contact}>
             <h4>Contact</h4>
-            <Link href="callto:+48733326433">+48 733 326 433</Link>
             <Link href="mailto:maciej@bernatowicz.dev">
               maciej@bernatowicz.dev
             </Link>
@@ -27,19 +26,10 @@ const Footer = () => {
               <Link href="https://github.com/malcewicz" target="_blank">
                 GitHub
               </Link>
-              <Link
-                href="MB_Resume_pers.pdf"
-                type="application/pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Resume
-              </Link>
             </div>
 
             <div className={styles.quick}>
               <h4>Quick Links</h4>
-              <Link href="#home">Home</Link>
               <Link href="#about">About Me</Link>
               <Link href="#projects">Projects</Link>
               <Link href="#experience">Experience</Link>

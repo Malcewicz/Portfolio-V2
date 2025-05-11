@@ -42,9 +42,9 @@ const AboutMe = () => {
             <h3>Project Management</h3>
             <p>
               I believe that a project is only as good as the team behind it,
-              that’s why I take a people-oriented approach, emphasizing
+              that&apos;s why I take a people-oriented approach, emphasizing
               cooperation and clear communication. Balancing technical knowledge
-              with management skills, I’m able to lead teams effectively to
+              with management skills, I&apos;m able to lead teams effectively to
               drive projects to successful completion.
             </p>
           </div>
@@ -116,6 +116,7 @@ const AboutMe = () => {
               to problem-solving and innovation.
             </p>
           </div>
+          <div className={styles.right}></div>
         </div>
       </div>
     </section>

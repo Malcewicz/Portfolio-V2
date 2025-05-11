@@ -1,7 +1,7 @@
 .footer {
   width: 100%;
   background-color: hsl(var(--black-300));
-  padding: 96px 48px 60px;
+  padding: 139px 48px 60px;
 }
 
 .footer > .wrapper {
