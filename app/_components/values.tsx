@@ -1,3 +1,7 @@
+"use client";
+
+import { useRef } from "react";
+import { gsap, useGSAP } from "@/app/_utils/gsap";
 import styles from "@/app/_styles/values.module.css";
 import {
   PeopleOrientedIcon,
@@ -9,6 +13,63 @@ import {
 } from "@/public/icons";
 
 const Values = () => {
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  // Animate value cards on scroll
+  useGSAP(
+    () => {
+      const values = contentRef.current?.querySelectorAll(`.${styles.value}`);
+
+      if (!values || values.length === 0) return;
+
+      const isMobile = window.innerWidth <= 810;
+
+      if (isMobile) {
+        // Mobile: animate each card individually when it enters viewport
+        values.forEach((value) => {
+          gsap.fromTo(
+            value,
+            {
+              opacity: 0,
+              x: 20,
+            },
+            {
+              opacity: 1,
+              x: 0,
+              duration: 0.5,
+              ease: "power1.out",
+              scrollTrigger: {
+                trigger: value,
+                start: "top 75%",
+              },
+            }
+          );
+        });
+      } else {
+        // Desktop: stagger animation
+        gsap.fromTo(
+          values,
+          {
+            opacity: 0,
+            x: 40,
+          },
+          {
+            opacity: 1,
+            x: 0,
+            duration: 0.6,
+            stagger: 0.25,
+            ease: "power1.out",
+            scrollTrigger: {
+              trigger: contentRef.current,
+              start: "top 75%",
+            },
+          }
+        );
+      }
+    },
+    { scope: contentRef }
+  );
+
   return (
     <section id="values" className={styles.values}>
       <div className="heading">
@@ -23,7 +84,7 @@ const Values = () => {
         </div>
       </div>
 
-      <div className={styles.content}>
+      <div className={styles.content} ref={contentRef}>
         <div className={styles.value}>
           <h3>People-Oriented Approach</h3>
           <p>

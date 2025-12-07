@@ -2,13 +2,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
+  min-height: 100svh;
   max-width: var(--max-width);
   padding-block: 48px;
   margin: 0 auto;
 }
 
-.hero > .container {
+.hero > .header {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,11 +17,11 @@
   text-align: center;
 }
 
-.hero > .container > .subheading {
+.hero > .header > .subheading {
   font-weight: 500;
 }
 
-.hero > .container > .heading > span {
+.hero > .header > .heading > span {
   background: -webkit-linear-gradient(
     270.5deg,
     hsl(var(--blue)) 33%,
@@ -33,53 +33,93 @@
 }
 
 /* Background glowing circles */
-.background {
+.hero::before {
+  content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
+  pointer-events: none;
   z-index: -1;
+  background-repeat: no-repeat;
+  background-image: radial-gradient(
+      ellipse 75% 75% at 75% 25%,
+      hsl(var(--blue) / 0.25) 0%,
+      hsl(var(--blue) / 0.21) 25%,
+      hsl(var(--blue) / 0.13) 50%,
+      hsl(var(--blue) / 0.06) 70%,
+      hsl(var(--blue) / 0.02) 85%,
+      transparent 100%
+    ),
+    radial-gradient(
+      ellipse 75% 75% at 25% 75%,
+      hsl(var(--blue) / 0.25) 0%,
+      hsl(var(--blue) / 0.21) 25%,
+      hsl(var(--blue) / 0.13) 50%,
+      hsl(var(--blue) / 0.06) 70%,
+      hsl(var(--blue) / 0.02) 85%,
+      transparent 100%
+    );
+  background-size: 36% 34%;
+  background-position: 100% 0%, 0% 100%;
+  mix-blend-mode: screen;
 }
 
-.background > .circle_top_right,
-.background > .circle_btm_left {
+/* Background noise overlay */
+.hero::after {
+  content: "";
   position: absolute;
-  aspect-ratio: 2.02;
-  background: hsl(var(--blue) / 0.25);
-  border-radius: 50%;
-  filter: blur(300px);
-}
-
-.background > .circle_top_right {
-  top: -5%;
-  right: -2%;
-  height: 300px;
-}
-
-.background > .circle_btm_left {
-  bottom: -5%;
-  left: -5%;
-  height: 350px;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background-repeat: no-repeat;
+  background-image: url("/images/noise.svg");
+  background-repeat: repeat;
+  mix-blend-mode: overlay;
+  opacity: 0.5;
 }
 
 /* Media query */
 @media screen and (max-width: 810px) {
-  .hero {
-    min-height: 100vh;
+  .hero::before {
+    background-image: radial-gradient(
+        ellipse 85% 85% at 85% 15%,
+        hsl(var(--blue) / 0.25) 0%,
+        hsl(var(--blue) / 0.21) 25%,
+        hsl(var(--blue) / 0.13) 50%,
+        hsl(var(--blue) / 0.06) 70%,
+        hsl(var(--blue) / 0.02) 85%,
+        transparent 100%
+      ),
+      radial-gradient(
+        ellipse 85% 85% at 15% 85%,
+        hsl(var(--blue) / 0.25) 0%,
+        hsl(var(--blue) / 0.21) 25%,
+        hsl(var(--blue) / 0.13) 50%,
+        hsl(var(--blue) / 0.06) 70%,
+        hsl(var(--blue) / 0.02) 85%,
+        transparent 100%
+      );
+    background-size: 70% 28%, 70% 25%;
   }
 
-  .hero > .container {
+  .hero::after {
+    opacity: 0.7;
+  }
+
+  .hero > .header {
     gap: 48px;
     margin: 22px;
   }
 
-  .hero > .container > .subheading {
+  .hero > .header > .subheading {
     font-size: 25px;
   }
 
-  .hero > .container > .heading {
+  .hero > .header > .heading {
     font-size: clamp(36px, 5vw, 42px);
+  }
+
+  .hero > .header > .description {
+    display: none;
   }
 
   .background {

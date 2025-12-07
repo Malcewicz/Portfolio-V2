@@ -51,7 +51,7 @@ const WorkExperience = () => {
             </div>
             <div className={styles.details}>
               <h4>Quality Assurance Technician</h4>
-              <div className="tags" style={{ gap: "14px" }}>
+              <div className={`tags ${styles.tags}`}>
                 <p>Cross-Team Collaboration</p>
                 <p>JIRA & TestRail</p>
                 <p>Bug Identification</p>
@@ -85,7 +85,7 @@ const WorkExperience = () => {
             </div>
             <div className={styles.details}>
               <h4>Junior IT Specialist</h4>
-              <div className="tags" style={{ gap: "14px" }}>
+              <div className={`tags ${styles.tags}`}>
                 <p>Project Management</p>
                 <p>Network Monitoring</p>
                 <p>Tech Support</p>
@@ -109,7 +109,7 @@ const WorkExperience = () => {
             </div>
             <div className={styles.details}>
               <h4>Junior IT Specialist Intern</h4>
-              <div className="tags" style={{ gap: "14px" }}>
+              <div className={`tags ${styles.tags}`}>
                 <p>Network Monitoring</p>
                 <p>Tech Support</p>
                 <p>System Configuration</p>
@@ -118,14 +118,14 @@ const WorkExperience = () => {
           </div>
         </article>
 
-        {/* Płatek Piotr Płatek */}
+        {/* Płatek */}
         <article className={styles.job}>
           <div className={styles.title}>
             <div className={styles.timeline}>
               <div className={styles.mainDot}></div>
               <div className={styles.line}></div>
             </div>
-            <h3>Płatek Piotr Płatek</h3>
+            <h3>Płatek</h3>
           </div>
 
           {/* Position 1 */}
@@ -143,7 +143,7 @@ const WorkExperience = () => {
             </div>
             <div className={styles.details}>
               <h4>Computer Technician Intern</h4>
-              <div className="tags" style={{ gap: "14px" }}>
+              <div className={`tags ${styles.tags}`}>
                 <p>Hardware Troubleshooting</p>
                 <p>Software Installation</p>
                 <p>Performance Testing</p>

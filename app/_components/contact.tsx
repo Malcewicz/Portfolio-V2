@@ -51,12 +51,12 @@ const Contact = () => {
             through any of the methods below. I look forward to connecting with
             you!
           </p>
-          <div className={styles.phonemail}>
+          {/* <div className={styles.phonemail}>
             <Link href="mailto:maciej@bernatowicz.dev">
               <IconMail size={22} stroke={2} />
               email me at: maciej@bernatowicz.dev
             </Link>
-          </div>
+          </div> */}
         </div>
 
         <div className={styles.resume}>

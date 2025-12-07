@@ -2,8 +2,8 @@ import styles from "@/app/_styles/hero.module.css";
 
 const Hero = () => {
   return (
-    <header className={styles.hero}>
-      <div className={styles.container}>
+    <div id="hero" className={styles.hero}>
+      <header className={styles.header}>
         <h3 className={styles.subheading}>Hello! I&apos;m Maciej</h3>
         <h1 className={styles.heading}>
           Transforming Ideas into Reality through{" "}
@@ -15,13 +15,8 @@ const Hero = () => {
           strategic oversight to every project, turning complex challenges into
           seamless solutions.
         </p>
-      </div>
-
-      <div className={styles.background}>
-        <div className={styles.circle_top_right}></div>
-        <div className={styles.circle_btm_left}></div>
-      </div>
-    </header>
+      </header>
+    </div>
   );
 };
 
