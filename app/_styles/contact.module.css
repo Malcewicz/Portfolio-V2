@@ -37,7 +37,6 @@
   display: grid;
   place-items: center;
   margin-left: 36px;
-  flex: 1;
 }
 
 .content > .text > .phonemail > a {
@@ -105,6 +104,10 @@
   .content > .text {
     gap: 28px;
     padding-inline: 0;
+  }
+
+  .content > .text > .phonemail {
+    margin-left: 0;
   }
 
   .content > .text > .phonemail > a {

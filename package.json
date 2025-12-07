@@ -3,33 +3,32 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbo",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
-    "@next/third-parties": "^15.3.2",
+    "@next/third-parties": "16.0.7",
     "@tabler/icons-react": "^3.31.0",
     "firebase": "^11",
     "gsap": "^3.12.5",
-    "next": "^15.3.2",
-    "react": "19.1.0",
-    "react-dom": "19.1.0"
+    "next": "16.0.7",
+    "react": "19.2.1",
+    "react-dom": "19.2.1"
   },
   "devDependencies": {
-    "@next/eslint-plugin-next": "^15.3.2",
+    "@next/eslint-plugin-next": "16.0.7",
     "@types/node": "^22",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
+    "@types/react": "19.2.7",
+    "@types/react-dom": "19.2.3",
     "eslint": "^9.26.0",
-    "eslint-config-next": "^15.3.2",
+    "eslint-config-next": "16.0.7",
     "typescript": "^5.8.3"
   },
   "overrides": {
-    "@tabler/icons-react": {
-      "react": "19.1.0"
-    }
+    "@types/react": "19.2.7",
+    "@types/react-dom": "19.2.3"
   }
 }
