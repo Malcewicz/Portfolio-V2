@@ -1,7 +1,7 @@
 .notfound {
   display: grid;
   place-items: center;
-  height: 100vh;
+  height: 100svh;
   padding: 24px;
 }
 
@@ -65,33 +65,49 @@
   margin: 0.1px;
 }
 
-.notfound > .background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-}
-
-.background > .circle_top_left,
-.background > .circle_btm_right {
+/* Background glowing circles */
+.notfound::before {
+  content: "";
   position: absolute;
-  height: 350px;
-  aspect-ratio: 2;
-  background: hsl(var(--blue) / 0.25);
-  border-radius: 50%;
-  filter: blur(300px);
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background-repeat: no-repeat;
+  background-image: radial-gradient(
+      ellipse 75% 75% at 25% 25%,
+      hsl(var(--blue) / 0.25) 0%,
+      hsl(var(--blue) / 0.21) 25%,
+      hsl(var(--blue) / 0.13) 50%,
+      hsl(var(--blue) / 0.06) 70%,
+      hsl(var(--blue) / 0.02) 85%,
+      transparent 100%
+    ),
+    radial-gradient(
+      ellipse 75% 75% at 75% 75%,
+      hsl(var(--blue) / 0.25) 0%,
+      hsl(var(--blue) / 0.21) 25%,
+      hsl(var(--blue) / 0.13) 50%,
+      hsl(var(--blue) / 0.06) 70%,
+      hsl(var(--blue) / 0.02) 85%,
+      transparent 100%
+    );
+  background-size: 37% 35%;
+  background-position: 0% 0%, 100% 100%;
+  mix-blend-mode: screen;
 }
 
-.background > .circle_top_left {
-  top: -90px;
-  left: -180px;
-}
-
-.background > .circle_btm_right {
-  bottom: -90px;
-  right: -180px;
+/* Background noise overlay */
+.notfound::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background-repeat: no-repeat;
+  background-image: url("/images/noise.svg");
+  background-repeat: repeat;
+  mix-blend-mode: overlay;
+  opacity: 0.5;
 }
 
 /* Media queries */
@@ -132,8 +148,29 @@
     font-size: 20px;
   }
 
-  .background > .circle_top_left,
-  .background > .circle_btm_right {
-    height: 200px;
+  .notfound::before {
+    background-image: radial-gradient(
+        ellipse 85% 85% at 15% 15%,
+        hsl(var(--blue) / 0.25) 0%,
+        hsl(var(--blue) / 0.21) 25%,
+        hsl(var(--blue) / 0.13) 50%,
+        hsl(var(--blue) / 0.06) 70%,
+        hsl(var(--blue) / 0.02) 85%,
+        transparent 100%
+      ),
+      radial-gradient(
+        ellipse 85% 85% at 85% 85%,
+        hsl(var(--blue) / 0.25) 0%,
+        hsl(var(--blue) / 0.21) 25%,
+        hsl(var(--blue) / 0.13) 50%,
+        hsl(var(--blue) / 0.06) 70%,
+        hsl(var(--blue) / 0.02) 85%,
+        transparent 100%
+      );
+    background-size: 72% 30%, 72% 28%;
+  }
+
+  .notfound::after {
+    opacity: 0.7;
   }
 }

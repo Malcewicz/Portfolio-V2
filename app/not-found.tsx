@@ -23,11 +23,6 @@ function NotFound() {
           </h3>
         </div>
       </div>
-
-      <div className={styles.background}>
-        <div className={styles.circle_top_left}></div>
-        <div className={styles.circle_btm_right}></div>
-      </div>
     </main>
   );
 }
