@@ -7,12 +7,12 @@
 }
 
 .experience {
-  padding-bottom: 0;
+  padding-bottom: 16px; /* Adjusted for timeline */
 }
 
 .education {
   border-radius: 0;
-  padding-bottom: calc(169px - 64px);
+  padding-block: calc(153px - 16px - 6px) calc(153px - 6px);
 }
 
 .experience > .content,
@@ -155,7 +155,7 @@
 
   .education {
     gap: 72px;
-    padding-bottom: calc(116px - 64px);
+    padding-block: calc(116px - 16px - 6px) calc(116px - 6px);
   }
 
   .job > .title {

@@ -4,12 +4,10 @@
   align-items: center;
   gap: 96px;
   background-color: hsl(var(--black-300));
+  border-radius: var(--radius-l) var(--radius-l) 0 0;
 }
 
-.about > .content {
-  display: flex;
-  flex-direction: column;
-  gap: 144px;
+.content {
   width: 100%;
 }
 
@@ -18,7 +16,7 @@
   align-items: baseline;
   gap: clamp(72px, 242px, 20%);
   border-top: 2px solid hsl(var(--grey));
-  padding: 36px 20px 0;
+  padding: 36px 20px 144px;
 }
 
 .content > .skill > .left,
@@ -44,7 +42,11 @@
   .content > .skill {
     flex-direction: column;
     gap: 48px;
-    padding: 36px 8px 0;
+    padding: 36px 8px 96px;
+  }
+
+  .content > .skill:last-of-type {
+    padding-bottom: 0;
   }
 
   .content > .skill > .left {

@@ -47,8 +47,10 @@ nav {
 }
 
 section {
+  position: relative;
   padding: 153px 48px;
-  border-radius: var(--radius-l) var(--radius-l) 0 0;
+  /* border-radius: var(--radius-l) var(--radius-l) 0 0; - temporarily only on AboutMe */
+  z-index: 5;
 }
 
 section > * {

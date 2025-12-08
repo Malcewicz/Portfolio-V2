@@ -18,35 +18,13 @@ const Values = () => {
   // Animate value cards on scroll
   useGSAP(
     () => {
+      const matchMedia = gsap.matchMedia();
       const values = contentRef.current?.querySelectorAll(`.${styles.value}`);
 
       if (!values || values.length === 0) return;
 
-      const isMobile = window.innerWidth <= 810;
-
-      if (isMobile) {
-        // Mobile: animate each card individually when it enters viewport
-        values.forEach((value) => {
-          gsap.fromTo(
-            value,
-            {
-              opacity: 0,
-              x: 20,
-            },
-            {
-              opacity: 1,
-              x: 0,
-              duration: 0.5,
-              ease: "power1.out",
-              scrollTrigger: {
-                trigger: value,
-                start: "top 75%",
-              },
-            }
-          );
-        });
-      } else {
-        // Desktop: stagger animation
+      // Desktop: stagger animation
+      matchMedia.add("(min-width: 811px)", () => {
         gsap.fromTo(
           values,
           {
@@ -62,10 +40,35 @@ const Values = () => {
             scrollTrigger: {
               trigger: contentRef.current,
               start: "top 75%",
+              toggleActions: "play none none reverse",
             },
           }
         );
-      }
+      });
+
+      // Mobile: fade-in each card individually when it enters viewport
+      matchMedia.add("(max-width: 810px)", () => {
+        values.forEach((value) => {
+          gsap.fromTo(
+            value,
+            {
+              opacity: 0,
+              y: 20,
+            },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.5,
+              ease: "power1.out",
+              scrollTrigger: {
+                trigger: value,
+                start: "top 75%",
+                toggleActions: "play none none reverse",
+              },
+            }
+          );
+        });
+      });
     },
     { scope: contentRef }
   );

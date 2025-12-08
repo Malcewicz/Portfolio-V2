@@ -1,6 +1,101 @@
+"use client";
+
+import { useRef } from "react";
+import { gsap, useGSAP } from "@/app/_utils/gsap";
 import styles from "@/app/_styles/about-me.module.css";
 
 const AboutMe = () => {
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(
+    () => {
+      const matchMedia = gsap.matchMedia();
+      const skills = contentRef.current?.querySelectorAll(`.${styles.skill}`);
+      // Compute totalHeight safely and fall back to a default if ref is not ready
+      const totalHeight = contentRef.current
+        ? contentRef.current.offsetHeight * 0.6
+        : 1100;
+
+      if (!skills || skills.length === 0) return;
+
+      // Desktop: pin and stack skills
+      matchMedia.add("(min-width: 811px)", () => {
+        // Create a master timeline that pins the container
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: contentRef.current,
+            start: "top 135px",
+            end: () => `+=${totalHeight}`,
+            pin: true,
+            scrub: 1,
+          },
+        });
+
+        //
+        skills.forEach((skill, index) => {
+          // Skip the last skill so it stays expanded
+          if (index === skills.length - 1) return;
+
+          const leftContent = skill.querySelector(`.${styles.left}`);
+          const rightContent = skill.querySelector(`.${styles.right}`);
+          const leftP = leftContent?.querySelector("p");
+
+          // Collapse each skill sequentially
+          tl.to(
+            [leftP, rightContent],
+            {
+              opacity: 0,
+              duration: 0.38,
+              ease: "none",
+            },
+            ">" // Start after previous animation finishes
+          )
+            .to(
+              [leftP, rightContent],
+              {
+                height: 0,
+                marginTop: 0,
+                duration: 0.8,
+                ease: "none",
+              },
+              "<" // Animate height at the same time as opacity but slower
+            )
+            .to(
+              skill,
+              {
+                paddingBottom: "11px",
+                duration: 0.8,
+                ease: "none",
+              },
+              "<" // Animate margin at the same time as content collapse
+            );
+        });
+      });
+
+      // Mobile: fade-in each skill individually when it enters viewport
+      matchMedia.add("(max-width: 810px)", () => {
+        skills.forEach((skill) => {
+          gsap.fromTo(
+            skill,
+            { opacity: 0, y: 40 },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.6,
+              ease: "power2.out",
+              scrollTrigger: {
+                trigger: skill,
+                start: "top 75%",
+                toggleActions: "play none none reverse",
+              },
+            }
+          );
+        });
+      });
+    },
+    { scope: contentRef }
+  );
+
   return (
     <section id="about" className={styles.about}>
       <div className="heading">
@@ -14,7 +109,7 @@ const AboutMe = () => {
           </p>
         </div>
       </div>
-      <div className={styles.content}>
+      <div className={styles.content} ref={contentRef}>
         <div className={styles.skill}>
           <div className={styles.left}>
             <h3>Software Development</h3>
