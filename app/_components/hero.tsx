@@ -4,16 +4,15 @@ const Hero = () => {
   return (
     <div id="hero" className={styles.hero}>
       <header className={styles.header}>
-        <h3 className={styles.subheading}>Hello! I&apos;m Maciej</h3>
+        <h3 className={styles.subheading}>Hi, I&apos;m Maciej</h3>
         <h1 className={styles.heading}>
-          Transforming Ideas into Reality through{" "}
-          <span>Technology and Cooperation</span>
+          A Technical Mind with a Passion for <span>Project Management</span>
         </h1>
         <p className={styles.description}>
-          With a foundation in software development and a passion for project
-          management, I bring a unique blend of technical expertise and
-          strategic oversight to every project, turning complex challenges into
-          seamless solutions.
+          I'm a QA professional based in Warsaw, with a strong grasp of how
+          software is built, tested, and delivered. Currently studying
+          Enterprise Management, I'm actively working toward a career in Project
+          Management, backed by hands-on technical experience.
         </p>
       </header>
     </div>

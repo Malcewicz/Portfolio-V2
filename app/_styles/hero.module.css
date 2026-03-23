@@ -35,6 +35,10 @@
   -webkit-text-fill-color: transparent;
 }
 
+.hero > .header > .description {
+  max-width: 800px;
+}
+
 /* Background glowing circles */
 .hero::before {
   content: "";
