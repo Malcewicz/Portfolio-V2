@@ -42,7 +42,7 @@ const Values = () => {
               start: "top 75%",
               toggleActions: "play none none reverse",
             },
-          }
+          },
         );
       });
 
@@ -65,12 +65,12 @@ const Values = () => {
                 start: "top 75%",
                 toggleActions: "play none none reverse",
               },
-            }
+            },
           );
         });
       });
     },
-    { scope: contentRef }
+    { scope: contentRef },
   );
 
   return (
@@ -79,32 +79,21 @@ const Values = () => {
         <h2>My Values</h2>
         <div className="wrapper">
           <p className="subtitle">
-            Striving to achieve excellence through a set of core values that
-            guide my approach to project management and software development.
-            They shape my decision-making process and interactions with clients
-            and team members.
+            Understanding work from the perspective of someone doing it, not
+            directing it, shaped the values I bring to every role. They
+            influence how I approach collaboration and problem solving, and how
+            I think about quality.
           </p>
         </div>
       </div>
 
       <div className={styles.content} ref={contentRef}>
         <div className={styles.value}>
-          <h3>People-Oriented Approach</h3>
-          <p>
-            Fostering a collaborative and supportive environment where every
-            team member feels valued and motivated to contribute their best.
-          </p>
-          <div className={styles.icon}>
-            <PeopleOrientedIcon />
-          </div>
-        </div>
-
-        <div className={styles.value}>
           <h3>Transparent Communication</h3>
           <p>
-            Maintaining openness and clarity through constant interaction with
-            team members and stakeholders to ensure everyone is aligned and
-            informed.
+            I value open communication with both team members and stakeholders.
+            Clarity at every stage prevents the types of misalignments that can
+            derail projects.
           </p>
           <div className={styles.icon}>
             <CommunicationIcon />
@@ -114,8 +103,9 @@ const Values = () => {
         <div className={styles.value}>
           <h3>Quality and Attention to Detail </h3>
           <p>
-            Ensuring every aspect of the project is thoroughly reviewed and
-            refined to maintain high standards of quality and excellence.{" "}
+            I hold my work to a high standard and care about getting things
+            right. The details others overlook are often the ones that matter
+            most.
           </p>
           <div className={styles.icon}>
             <QualityIcon />
@@ -125,9 +115,9 @@ const Values = () => {
         <div className={styles.value}>
           <h3>Adaptability and Flexibility</h3>
           <p>
-            Being prepared to pivot and adjust plans based on feedback and
-            changing project requirements, ensuring successful outcomes despite
-            unforeseen challenges.
+            Projects rarely go exactly to plan. I focus on staying clear-headed,
+            taking in feedback, and adjusting quickly without losing sight of
+            the goal.
           </p>
           <div className={styles.icon}>
             <FlexibilityIcon />
@@ -135,10 +125,23 @@ const Values = () => {
         </div>
 
         <div className={styles.value}>
+          <h3>People-Oriented Approach</h3>
+          <p>
+            Great results start with great teams. For me that means building
+            trust, recognising individual strengths, and making sure everyone
+            feels valued.
+          </p>
+          <div className={styles.icon}>
+            <PeopleOrientedIcon />
+          </div>
+        </div>
+
+        <div className={styles.value}>
           <h3>Continuous Learning</h3>
           <p>
-            Commitment to ongoing education and skill development to stay ahead
-            in the ever-evolving field of technology and project management.
+            I actively pursue knowledge through studies and certifications,
+            though genuine curiosity has always been my biggest motivator for
+            learning.
           </p>
           <div className={styles.icon}>
             <LearningIcon />
@@ -148,8 +151,9 @@ const Values = () => {
         <div className={styles.value}>
           <h3>Creative Problem Solving</h3>
           <p>
-            Embracing creativity and forward-thinking to develop unique and
-            effective solutions that meet the needs of clients and stakeholders.
+            When the standard solution isn&apos;t the right fit, I look deeper.
+            I enjoy finding approaches that are creative, practical, and well
+            suited to the problem at hand.
           </p>
           <div className={styles.icon}>
             <ProblemSolvingIcon />

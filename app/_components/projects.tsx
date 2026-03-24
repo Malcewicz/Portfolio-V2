@@ -9,15 +9,16 @@ const projectData = [
   {
     title: "Wakely",
     description:
-      "What if an app could seamlessly blend beauty with functionality? Wakely does just that. Designed with Figma and brought to life using Flutter, it offers a sleek, user-friendly experience in both light and dark modes.",
+      "Designed in Figma and built with Flutter, I created this app with one clear goal: to make the user experience as polished as its design. It offers both light and dark modes with a consistent look and feel throughout.",
     tags: ["Figma", "Flutter", "Dart"],
     image: "/images/wakely.png",
     alt: "Wakely App",
+    link: "/images/wakely.png",
   },
   {
     title: "Lakeview Apartments",
     description:
-      "For LakeView, I crafted a clean, responsive single-page website tailored to my client's needs. Using a Mobile First approach, I ensured a user-friendly experience that has drawn thousands of visitors since its launch.",
+      "For LakeView, I built a clean, responsive single-page website tailored to my client's needs. Using a Mobile First approach, I ensured a user-friendly experience that has drawn thousands of visitors since its launch.",
     tags: ["Figma", "HTML", "CSS", "JavaScript"],
     image: "/images/lakeview.png",
     alt: "Lakeview Apartments Website",
@@ -26,7 +27,7 @@ const projectData = [
   {
     title: "Sushi Project",
     description:
-      "Can a website be as delightful as the cuisine it features? This project, built while learning Vite, features swift loading times and playful animations. While the design credits go to Pickolab studio, the coding showcases my technical skills.",
+      "While learning Vite, I brought a Pickolab Studio design to life, focusing on swift loading times and smooth animations. The visual concept is theirs, but turning it into a fast, animated website was the challenge I took on.",
     tags: ["Vite", "HTML", "CSS", "JavaScript"],
     image: "/images/sushi.png",
     alt: "Sushi Project Website",
@@ -47,10 +48,10 @@ const Projects = () => {
         <h2>Recent Work</h2>
         <div className="wrapper">
           <p className="subtitle">
-            Here are some of my recent projects, showcasing my front-end
-            development and UI design skills. These projects reflect my
-            commitment to delivering high-quality, user-friendly solutions using
-            modern technologies.
+            UI design and front-end development are where my genuine interest in
+            how things look and work comes to life, through personal projects
+            and client work alike. Each one is built with attention to detail
+            and user experience in mind.
           </p>
         </div>
       </div>

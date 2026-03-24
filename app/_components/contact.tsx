@@ -2,9 +2,9 @@
 
 import { useRef } from "react";
 import { gsap, useGSAP } from "@/app/_utils/gsap";
-import Link from "next/link";
 import styles from "@/app/_styles/contact.module.css";
-import { IconPhone, IconMail } from "@tabler/icons-react";
+// import Link from "next/link";
+// import { IconMail } from "@tabler/icons-react";
 
 const Contact = () => {
   const button = useRef<HTMLAnchorElement | null>(null);
@@ -32,7 +32,7 @@ const Contact = () => {
         currentButton.removeEventListener("mouseenter", handleMouseEnter);
       };
     },
-    { scope: button }
+    { scope: button },
   );
 
   return (
@@ -65,7 +65,7 @@ const Contact = () => {
             Feel free to view or download my resume:
           </p>
           <a
-            href="/MB_Resume_pers.pdf"
+            href="/Resume_Maciej_Bernatowicz_pers.pdf"
             type="application/pdf"
             target="_blank"
             rel="noopener noreferrer"

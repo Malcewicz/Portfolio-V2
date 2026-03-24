@@ -17,10 +17,10 @@ const WorkExperience = () => {
         <h2>My Experience</h2>
         <div className="wrapper">
           <p className="subtitle">
-            With a blend of technical expertise and project management skills,
-            my professional journey highlights roles that required
-            problem-solving, system optimization, and technical support.
-            Here&apos;s a snapshot of my career so far:
+            I&apos;ve built my experience from the ground up - through IT
+            support, QA, and personal projects that kept me close to how
+            software is built and delivered. It&apos;s that perspective that now
+            drives my move toward Project Management.
           </p>
         </div>
       </div>
@@ -53,7 +53,7 @@ const WorkExperience = () => {
               <h4>Quality Assurance Technician</h4>
               <div className={`tags ${styles.tags}`}>
                 <p>Cross-Team Collaboration</p>
-                <p>JIRA & TestRail</p>
+                <p>JIRA & Testpad</p>
                 <p>Bug Identification</p>
                 <p>Task Prioritization</p>
               </div>

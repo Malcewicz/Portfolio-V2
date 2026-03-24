@@ -29,7 +29,7 @@ const Navbar = () => {
         delay: 0.3,
       });
     },
-    { scope: nav }
+    { scope: nav },
   );
 
   // Animate the mobile menu
@@ -41,12 +41,12 @@ const Navbar = () => {
     tl.to(
       hamburger.current.children[0],
       { rotate: 360, display: "none", opacity: 0, duration: 0.3 },
-      0
+      0,
     );
     tl.to(
       hamburger.current.children[1],
       { rotate: 180, display: "inherit", opacity: 1, duration: 0.3 },
-      0.1
+      0.1,
     );
     // Expand nav
     tl.to(
@@ -55,7 +55,7 @@ const Navbar = () => {
         height: "342px",
         duration: 0.3,
       },
-      0
+      0,
     );
     // Show menu
     tl.to(links.current, { display: "flex" }, 0);
@@ -68,7 +68,7 @@ const Navbar = () => {
         duration: 0.3,
         stagger: 0.1,
       },
-      0.3
+      0.3,
     );
     tl.reverse();
 
@@ -82,12 +82,12 @@ const Navbar = () => {
 
     const currentHamburger = hamburger.current; // Capture current value for cleanup
     const currentLinksChildren = Array.from(
-      links.current.children
+      links.current.children,
     ) as HTMLElement[];
 
     // Close the menu when a link is clicked
     currentLinksChildren.forEach((child) =>
-      child.addEventListener("click", handleLinkClick)
+      child.addEventListener("click", handleLinkClick),
     );
 
     // Toggle menu on hamburger click
@@ -96,7 +96,7 @@ const Navbar = () => {
     return () => {
       currentHamburger.removeEventListener("click", toggleMenu);
       currentLinksChildren.forEach((child) =>
-        child.removeEventListener("click", handleLinkClick)
+        child.removeEventListener("click", handleLinkClick),
       );
     };
   }, [nav, hamburger, links]);
@@ -123,7 +123,7 @@ const Navbar = () => {
         currentButton.removeEventListener("mousemove", playButtonAnimation);
       };
     },
-    { scope: button }
+    { scope: button },
   );
 
   return (
@@ -148,7 +148,7 @@ const Navbar = () => {
         <Link href="#experience">Experience</Link>
         <Link href="#contact">Contact</Link>
         <a
-          href="/MB_Resume_pers.pdf"
+          href="/Resume_Maciej_Bernatowicz_pers.pdf"
           type="application/pdf"
           target="_blank"
           title="Open my resume in a new tab"
