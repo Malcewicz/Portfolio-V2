@@ -3,7 +3,7 @@
 Welcome to the second version of my professional portfolio! 
 
 This project showcases my latest work, created to highlight my skills and experience as a developer.  
-I embarked on this design journey in Figma, ensuring a user-friendly and visually appealing layout. Utilizing the cutting-edge capabilities of Next.js 15 and GSAP for smooth animations, I brought this vision to life. Dive into my portfolio to explore my diverse projects, witness my creative process, and learn more about my ongoing journey in development. 
+I embarked on this design journey in Figma, ensuring a user-friendly and visually appealing layout. Utilizing the cutting-edge capabilities of Next.js 16 and GSAP for smooth animations, I brought this vision to life. Dive into my portfolio to explore my diverse projects, witness my creative process, and learn more about my ongoing journey in development. 
 
 Whether you're here for inspiration, potential collaboration, or to simply see what I've been up to, I hope you enjoy the experience!
 
