@@ -9,10 +9,10 @@ const Hero = () => {
           A Technical Mind with a Passion for <span>Project Management</span>
         </h1>
         <p className={styles.description}>
-          I'm a QA professional based in Warsaw, with a strong grasp of how
+          I&apos;m a QA professional based in Warsaw, with a strong grasp of how
           software is built, tested, and delivered. Currently studying
-          Enterprise Management, I'm actively working toward a career in Project
-          Management, backed by hands-on technical experience.
+          Enterprise Management, I&apos;m actively working toward a career in
+          Project Management, backed by hands-on technical experience.
         </p>
       </header>
     </div>
